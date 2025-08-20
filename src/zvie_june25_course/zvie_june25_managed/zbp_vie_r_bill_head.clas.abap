@@ -1,0 +1,5 @@
+CLASS zbp_vie_r_bill_head DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zvie_r_bill_head.
+ENDCLASS.
+
+CLASS zbp_vie_r_bill_head IMPLEMENTATION.
+ENDCLASS.

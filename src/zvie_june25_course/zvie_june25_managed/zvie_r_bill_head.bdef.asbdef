@@ -1,0 +1,27 @@
+managed implementation in class zbp_vie_r_bill_head unique;
+strict ( 2 );
+
+define behavior for ZVIE_R_BILL_HEAD //alias <alias_name>
+persistent table zvie_bill_header
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( readonly : update, mandatory : create ) BillId;
+
+  mapping for zvie_bill_header
+    {
+      BillId     = bill_id;
+      BillType   = bill_type;
+      BillDate   = bill_date;
+      CustomerId = customer_id;
+      NetAmount  = net_amount;
+      Currency   = currency;
+      SalesOrg   = sales_org;
+    }
+
+}

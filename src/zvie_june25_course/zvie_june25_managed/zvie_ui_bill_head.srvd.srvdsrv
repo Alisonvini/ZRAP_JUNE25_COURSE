@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Billing Document'
+define service ZVIE_UI_BILL_HEAD {
+  expose ZVIE_C_BILL_HEAD as BillingDocumentHeader;
+}
