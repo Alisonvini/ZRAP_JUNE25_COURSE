@@ -17,11 +17,13 @@ CLASS zvie_cl_fill_table IMPLEMENTATION.
 
     TYPES tt_zvie_bill_header TYPE TABLE OF zvie_bill_header WITH DEFAULT KEY.
 
-    DATA(lt_bill_heade) = VALUE tt_zvie_bill_header(
-       (  bill_id = 1 bill_type = 'TY' )
-    ).
+    delete from zvie_bill_header.
 
-    MODIFY zvie_bill_header FROM TABLE @lt_bill_heade.
+*    DATA(lt_bill_heade) = VALUE tt_zvie_bill_header(
+*       (  bill_id = 1 bill_type = 'TY' )
+*    ).
+*
+*    MODIFY zvie_bill_header FROM TABLE @lt_bill_heade.
 
   ENDMETHOD.
 

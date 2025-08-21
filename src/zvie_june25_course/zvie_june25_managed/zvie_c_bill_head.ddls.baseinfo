@@ -6,9 +6,14 @@
 "ZVIE_R_BILL_HEAD"
 ],
 "ASSOCIATED":
-[],
+[
+"ZVIE_C_BILL_ITEM",
+"ZVIE_R_BILL_ITEM"
+],
 "BASE":
-[],
+[
+"ZVIE_R_BILL_HEAD"
+],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":

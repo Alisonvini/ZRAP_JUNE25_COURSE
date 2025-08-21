@@ -13,15 +13,52 @@ authorization master ( instance )
 
   field ( readonly : update, mandatory : create ) BillId;
 
+  association _item { create; }
+
   mapping for zvie_bill_header
     {
-      BillId     = bill_id;
-      BillType   = bill_type;
-      BillDate   = bill_date;
-      CustomerId = customer_id;
-      NetAmount  = net_amount;
-      Currency   = currency;
-      SalesOrg   = sales_org;
+      BillId             = bill_id;
+      BillType           = bill_type;
+      BillDate           = bill_date;
+      CustomerId         = customer_id;
+      NetAmount          = net_amount;
+      Currency           = currency;
+      SalesOrg           = sales_org;
+      CreatedBy          = createdby;
+      CreateDat          = createdat;
+      LastChangedBy      = lastchangedby;
+      LastChangeDat      = lastchangedat;
+      LocalLastChangeDat = locallastchangedat;
     }
 
+}
+
+define behavior for ZVIE_R_BILL_ITEM //alias alias
+persistent table zvie_bill_item
+lock dependent by _header
+authorization dependent by _header
+{
+  update;
+  delete;
+
+  field ( readonly : update, mandatory : create ) BillId, ItemNo;
+
+  association _header;
+
+  mapping for zvie_bill_item
+    {
+      BillId             = bill_id;
+      ItemNo             = item_no;
+      MaterialId         = material_id;
+      Description        = description;
+      Quantity           = quantity;
+      ItemAmount         = item_amount;
+      Currency           = currency;
+      Uom                = uom;
+      CreatedBy          = createdby;
+      CreateDat          = createdat;
+      LastChangedBy      = lastchangedby;
+      LastChangeDat      = lastchangedat;
+      LocalLastChangeDat = locallastchangedat;
+    }
 }

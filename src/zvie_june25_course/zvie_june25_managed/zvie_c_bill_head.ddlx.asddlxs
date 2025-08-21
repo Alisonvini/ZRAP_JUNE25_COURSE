@@ -3,16 +3,34 @@
     headerInfo: {
         typeName: 'Billing Document Header',
         typeNamePlural: 'Billing Documents',
-        title: { type: #STANDARD, label: 'Billing Document', value: 'BillID' }
+        title: {
+        type: #STANDARD,
+        label: 'Billing Document',
+        value: 'BillID' }
     }
 }
 annotate entity ZVIE_C_BILL_HEAD with
 {
-  @UI.facet: [{ id: 'BillingDocHead',
+  @UI.facet: [
+  { 
+                id: 'BillingDocHead',
                 purpose: #STANDARD,
                 type: #IDENTIFICATION_REFERENCE,
                 label: 'Header',
-                position: 10  }]
+                position: 10  
+                },
+                
+                { 
+                id: 'BillingDocItem',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Items',
+                position: 20,
+                targetElement: '_item'
+                }
+                
+                
+                ]
 
   @EndUserText.label: 'Billing Document'
   @UI: { lineItem: [{ position: 10 }],

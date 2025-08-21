@@ -8,8 +8,9 @@
     dataClass: #MIXED
 }
 @VDM.viewType: #BASIC
-define view entity ZVIE_I_BILL_HEAD
+define root view entity ZVIE_I_BILL_HEAD
   as select from zvie_bill_header
+  composition [0..*] of ZVIE_I_BILL_ITEM as _item
 {
   key bill_id            as BillId,
       bill_type          as BillType,
@@ -23,5 +24,7 @@ define view entity ZVIE_I_BILL_HEAD
       createdat          as Createdat,
       lastchangedby      as Lastchangedby,
       lastchangedat      as Lastchangedat,
-      locallastchangedat as Locallastchangedat
+      locallastchangedat as Locallastchangedat,
+      
+      _item
 }

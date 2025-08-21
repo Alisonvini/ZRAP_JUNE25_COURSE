@@ -19,5 +19,7 @@ define root view entity ZVIE_C_BILL_HEAD
       Createdat,
       Lastchangedby,
       Lastchangedat,
-      Locallastchangedat
+      Locallastchangedat,
+      
+      _item: redirected to composition child ZVIE_C_BILL_ITEM
 }

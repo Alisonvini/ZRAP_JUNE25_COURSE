@@ -4,6 +4,7 @@
 @VDM.viewType: #TRANSACTIONAL
 define root view entity ZVIE_R_BILL_HEAD
   as select from ZVIE_I_BILL_HEAD
+  composition [0..*] of ZVIE_R_BILL_ITEM as _item
 
 {
   key BillId,
@@ -23,5 +24,7 @@ define root view entity ZVIE_R_BILL_HEAD
       @Semantics.systemDateTime.lastChangedAt: true
       Lastchangedat,
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
-      Locallastchangedat
+      Locallastchangedat,
+      
+      _item
 }

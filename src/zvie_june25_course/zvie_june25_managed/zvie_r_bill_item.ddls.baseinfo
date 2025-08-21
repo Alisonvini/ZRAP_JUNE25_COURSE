@@ -3,11 +3,11 @@
 {
 "FROM":
 [
-"ZVIE_I_BILL_HEAD"
+"ZVIE_I_BILL_ITEM"
 ],
 "ASSOCIATED":
 [
-"ZVIE_R_BILL_ITEM"
+"ZVIE_R_BILL_HEAD"
 ],
 "BASE":
 [],
