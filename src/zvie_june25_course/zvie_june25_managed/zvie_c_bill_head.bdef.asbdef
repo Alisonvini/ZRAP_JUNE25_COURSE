@@ -7,6 +7,10 @@ define behavior for ZVIE_C_BILL_HEAD //alias <alias_name>
   use update;
   use delete;
 
+  use action updateBillingDate;
+  use action createBillingDocHeader;
+  use action copyBillingDocument;
+
   use association _item { create; }
 }
 

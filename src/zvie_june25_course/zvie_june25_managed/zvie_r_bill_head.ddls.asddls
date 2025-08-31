@@ -15,6 +15,8 @@ define root view entity ZVIE_R_BILL_HEAD
       NetAmount,
       Currency,
       SalesOrg,
+      PlanStartDate,
+      PlanEndtDate,
       @Semantics.user.createdBy: true
       Createdby,
       @Semantics.systemDateTime.createdAt: true
@@ -25,6 +27,6 @@ define root view entity ZVIE_R_BILL_HEAD
       Lastchangedat,
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       Locallastchangedat,
-      
+
       _item
 }

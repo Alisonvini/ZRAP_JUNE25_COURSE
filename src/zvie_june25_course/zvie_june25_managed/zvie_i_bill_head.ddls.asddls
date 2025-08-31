@@ -19,12 +19,14 @@ define root view entity ZVIE_I_BILL_HEAD
       @Semantics.amount.currencyCode: 'Currency'
       net_amount         as NetAmount,
       currency           as Currency,
+      plan_start_date    as PlanStartDate,
+      plan_end_date      as PlanEndtDate,
       sales_org          as SalesOrg,
       createdby          as Createdby,
       createdat          as Createdat,
       lastchangedby      as Lastchangedby,
       lastchangedat      as Lastchangedat,
       locallastchangedat as Locallastchangedat,
-      
+
       _item
 }

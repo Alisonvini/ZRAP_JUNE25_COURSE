@@ -7,11 +7,19 @@ lock master
 authorization master ( instance )
 //etag master <field_name>
 {
-  create ( authorization : global );
+  create ( precheck );
   update;
-  delete;
+  delete ( features : instance );
 
   field ( readonly : update, mandatory : create ) BillId;
+
+  field ( features : instance ) Currency;
+
+  action ( features : instance ) updateBillingDate result [1] $self;
+  static action createBillingDocHeader parameter ZVIE_A_CREATE_BILL_PARAMS result [1] $self;
+  factory action copyBillingDocument [1];
+
+  validation validateAmount on save { field NetAmount; create; update; }
 
   association _item { create; }
 
@@ -20,6 +28,8 @@ authorization master ( instance )
       BillId             = bill_id;
       BillType           = bill_type;
       BillDate           = bill_date;
+      PlanStartDate      = plan_start_date;
+      PlanEndtDate       = plan_end_date;
       CustomerId         = customer_id;
       NetAmount          = net_amount;
       Currency           = currency;
@@ -42,6 +52,8 @@ authorization dependent by _header
   delete;
 
   field ( readonly : update, mandatory : create ) BillId, ItemNo;
+
+  determination determineItemDescription on save { create; }
 
   association _header;
 

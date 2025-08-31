@@ -12,15 +12,15 @@
 annotate entity ZVIE_C_BILL_HEAD with
 {
   @UI.facet: [
-  { 
+  {
                 id: 'BillingDocHead',
                 purpose: #STANDARD,
                 type: #IDENTIFICATION_REFERENCE,
                 label: 'Header',
-                position: 10  
+                position: 10
                 },
-                
-                { 
+
+                {
                 id: 'BillingDocItem',
                 purpose: #STANDARD,
                 type: #LINEITEM_REFERENCE,
@@ -28,12 +28,16 @@ annotate entity ZVIE_C_BILL_HEAD with
                 position: 20,
                 targetElement: '_item'
                 }
-                
-                
+
+
                 ]
 
   @EndUserText.label: 'Billing Document'
-  @UI: { lineItem: [{ position: 10 }],
+  @UI: { lineItem: [{ position: 10 },
+                    { position: 10, type: #FOR_ACTION, dataAction: 'updateBillingDate', label: 'Reset Billing Date' },
+                    { position: 20, type: #FOR_ACTION, dataAction: 'createBillingDocHeader', label: 'Create Bill Header' },
+                    { position: 30, type: #FOR_ACTION, dataAction: 'copyBillingDocument', label: 'Copy Billing Document' }
+                    ],
          identification: [{ position: 10 }],
          selectionField: [{ position: 10 }] }
   BillId;
@@ -63,5 +67,36 @@ annotate entity ZVIE_C_BILL_HEAD with
   @UI: { lineItem: [{ position: 70 }],
          identification: [{ position: 70 }] }
   SalesOrg;
+  @UI: {
+    lineItem: [
+    {  hidden: true,
+    exclude: true },
+        {
+        type: #AS_FIELDGROUP,
+          valueQualifier: 'StartEnd',
+          label: 'Planned Start / End' }
+    ],
+        fieldGroup: [
+        {
+        qualifier: 'StartEnd',
+          position: 10 }]
+    }
+  @Consumption:{
+      filter.hidden: true
+       }
+  PlanStartDate;
+  @UI: {
+    lineItem: [
+    { hidden: true,
+    exclude: true }
+    ],
+    fieldGroup: [
+    {
+    qualifier: 'StartEnd',
+      position: 20 }] }
+  @Consumption:{
+    filter.hidden: true
+     }
+  PlanEndtDate;
 
 }

@@ -14,12 +14,14 @@ define root view entity ZVIE_C_BILL_HEAD
       @Semantics.amount.currencyCode: 'Currency'
       NetAmount,
       Currency,
+      PlanStartDate,
+      PlanEndtDate,
       SalesOrg,
       Createdby,
       Createdat,
       Lastchangedby,
       Lastchangedat,
       Locallastchangedat,
-      
-      _item: redirected to composition child ZVIE_C_BILL_ITEM
+
+      _item : redirected to composition child ZVIE_C_BILL_ITEM
 }
